@@ -1,5 +1,5 @@
-Some bash-like python skripts for mining data from Sketch Engine and import into xlsx files.  
-Dockalk pull data from sketch engine corpus, calc some fitch, and impori it into xlsx file.  
+Some bash-like python skripts for mining data from Sketch Engine and export it into xlsx files.  
+Dockalk pull data from sketch engine corpus, calc some fitch, and export it into xlsx file.  
 StaffParse take xlsx file, parse it, calculate some fithes and write it into another xlsx file.  
 <jf>
 Скрипты реализованы на Python 3, поэтому используют bash - подобный синтаксис. Для запуска, помимо интерпретатора Python(для windows можно скачать здесь https://www.python.org/downloads/windows/) необходимы следующие внешние библиотеки: openpyxl(устанавливается с помощью команды pip3 install openpyxl) и scipy(pip3 install scipy)

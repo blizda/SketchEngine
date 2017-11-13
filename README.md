@@ -1,4 +1,4 @@
-Some bash-like python skripts for mining data from Sketch Engine and export it into xlsx files.  
+Some bash-like python scripts for mining data from Sketch Engine and export it into xlsx files.  
 Dockalk pull data from sketch engine corpus, calc some fitch, and export it into xlsx file.  
 StaffParse take xlsx file, parse it, calculate some fithes and write it into another xlsx file.  
 <jf>

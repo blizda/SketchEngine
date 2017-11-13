@@ -34,11 +34,14 @@ def readAllFitch(sheet, N):
     return allDict
 
 def makeCountFitch(sheet, countDict):
-    sheet['G1'] = 'Число мер'
+    sheet['J1'] = 'Число мер'
     numD = numDict(sheet)
-    for it in countDict:
+    for it in numD:
         row = numD[it]
-        sheet.cell(row=row, column=10).value = countDict[it]
+        if it in countDict:
+            sheet.cell(row=row, column=10).value = countDict[it]
+        else:
+            sheet.cell(row=row, column=10).value = 0
     return sheet
 
 def numDict(sheet):
@@ -70,8 +73,6 @@ def countRel(nDict, sredDict):
         if it in sredDict:
             if nDict[it] > 0:
                 relDict[it] = math.log2(1 + 5 / nDict[it]) * sredDict[it]
-            else:
-                relDict[it] = math.log2(6) * sredDict[it]
     return relDict
 
 def colLen(sheet):
@@ -125,7 +126,8 @@ def writeData(wb, sheet, sredRang, optRang, relRang, fileName):
         row = numD[it]
         sheet.cell(row=row, column=11).value = sredRang[it]
         sheet.cell(row=row, column=12).value = optRang[it]
-        sheet.cell(row=row, column=13).value = relRang[it]
+        if it in relRang:
+            sheet.cell(row=row, column=13).value = relRang[it]
     wb.save(fileName)
 
 def createParser():

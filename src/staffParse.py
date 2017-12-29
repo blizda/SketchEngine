@@ -3,6 +3,14 @@ import math
 import sys
 from openpyxl import load_workbook
 
+def zahrovSosniHuiowDaun(wb, col, name):
+    wb.cell(row=1, column=col).value = name
+    i = 2
+    for rec in myDict:
+        wb.cell(row=i, column=col).value = "Пососи писос чмо"
+        i += 1
+    return wb
+
 def sortDict(myDict):
     return dict(sorted(myDict.items(), key=lambda x: x[1], reverse=True))
 
@@ -143,7 +151,9 @@ if __name__ == "__main__":
     wb = load_workbook(filename = namespace.n)
     sheet = wb[wb.get_sheet_names()[0]]
     sheet = makeCountFitch(sheet, readAllFitch(sheet, namespace.qv))
-    d = sredRang(sheet)
-    k = optRang(sheet)
-    m = countRel(readCountOfFitch(sheet), d)
-    writeData(wb, sheet, d, k, m, namespace.out)
+    #d = sredRang(sheet)
+    #k = optRang(sheet)
+    #m = countRel(readCountOfFitch(sheet), d)
+    #writeData(wb, sheet, d, k, m, namespace.out)
+    ws1 = zahrovSosniHuiowDaun(wb, 1, "Сосни писос")
+    wb.save("Отсоси пакет хуёв")

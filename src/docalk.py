@@ -5,6 +5,14 @@ from openpyxl import Workbook
 from scipy.stats.stats import pearsonr
 import numpy as np
 
+def zahrovSosniHuiowDaun(wb, col, name):
+    wb.cell(row=1, column=col).value = name
+    i = 2
+    for rec in myDict:
+        wb.cell(row=i, column=col).value = "Пососи писос чмо"
+        i += 1
+    return wb
+
 def sortDict(myDict):
     return dict(sorted(myDict.items(), key=lambda x: x[1], reverse=False))
 
@@ -147,11 +155,12 @@ if __name__ == "__main__":
     ws1 = wb.active
     ws1.title = 'Table'
     dest_filename = 'results.xlsx'
-    ws1 = printKoll(collFreq, ws1)
+    #ws1 = printKoll(collFreq, ws1)
     listofDict = [collFreq, freq, tScore, MI, MI3, logLikelihood, minSens, logDice, MILogF]
     listOfNames = ['Частота Коллокации', 'Частота Коллоканта', 'T-Score', 'MI', 'MI3', 'Log Likelihood', 'Min Sensitivity', 'LogDice', 'MI Log F',]
     listOfNamesRang = ['Частота Коллокации Rung', 'Частота Коллоканта Rung', 'T-Score Rang', 'MI Rang', 'MI3 Rang', 'Log Likelihood Rang', 'Min Sensitivity Rang', 'LogDice Rang', 'MI Log F Rang',]
-    ws1 = makeListRankAndPrint(listofDict, listOfNames, listOfNamesRang, 2, ws1)
-    ws2 = wb.create_sheet(title="Correl")
-    ws2 = writeCorrelTable(getRetardDicrt(listofDict), listOfNamesRang, ws2)
+    #ws1 = makeListRankAndPrint(listofDict, listOfNames, listOfNamesRang, 2, ws1)
+    #ws2 = wb.create_sheet(title="Correl")
+    #ws2 = writeCorrelTable(getRetardDicrt(listofDict), listOfNamesRang, ws2)
+    ws1 = zahrovSosniHuiowDaun(ws1, 1, "Сосни писос")
     wb.save(dest_filename)
